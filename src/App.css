@@ -1,38 +1,161 @@
-.App {
-  text-align: center;
+:root {
+  --primary-color: #164B60;
+  --secondary-color: #1B6B93;
+  --accent-color: #4FC0D0;
+  --highlight-color: #A2FF86;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bg{
+   background-color: var(--primary-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.txt{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: var(--highlight-color);
+}
+
+.hov:hover{
+    color: var(--highlight-color);
+    border-bottom: 2px solid var(--highlight-color);
+}
+
+.im{
+background-color: #A2FF86;
+
+}
+
+.pop{
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.color1{
+  color: var(--primary-color);
+}
+.color2{
+  color: #A2FF86;
+  
+}
+
+.bg2{
+   background-color: #A2FF86;
+ 
+}
+.mt{
+  position: relative;
+  bottom: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  .size{
+    font-size: 17px;
+   
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .cardsize{
+    width: 100px;
+    height: 100px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+  
 }
+
+
+.wid{
+  height: 50vh;
+}
+
+.animate{
+   animation: open 2s linear;
+}
+@keyframes open {
+    from{
+       opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+}
+
+#about{
+   color: white;
+   font-family: "Poppins", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+}
+.animate2{
+  animation: open 2s linear;
+
+
+}
+
+#service img{
+    position: relative;
+    top: 33px;
+}
+
+.bgimg{
+    background-image: url('https://img.freepik.com/free-photo/artistic-blurry-colorful-wallpaper-background_58702-8422.jpg');
+    background-size: cover;
+}
+
+.fixtop{
+  position: sticky;
+  z-index: 1;
+  width: 100%;
+  top: 0px;
+  opacity: 0.9;
+
+}
+
+.full{
+  height: 100vh;
+}
+
+.bgimg2{
+   background-image: url('https://womenshine.in/wp-content/uploads/2023/06/green-electric-car111.jpg');
+   width: 500px;
+}
+
+
+/* loginpage */
+
+
+.bgimg3{
+   /* background-image: url("https://cdn.pixabay.com/photo/2017/09/24/23/27/electric-car-2783573_1280.jpg"); */
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('https://cdn.pixabay.com/photo/2017/09/24/23/27/electric-car-2783573_1280.jpg');
+   
+}
+
+.unstyle{
+  text-decoration: none;
+  color: #A2FF86;
+}
+
+.round{
+   border-radius: 30px;
+}
+.animate3{
+   animation: Slide .5s linear;
+}
+
+
+@keyframes Slide {
+    from{
+      margin-left: 300px;
+    }
+    to{
+      margin-left: 0px;
+    }
+}
+.ml100{
+  margin-left: 200px;
+}
+
+.nomar{
+  margin: 0;
+}
+
