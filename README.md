@@ -1,70 +1,16 @@
-# Getting Started with Create React App
+Wellcome to CometCharge
+Leading the way in EV charging station reliability
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+About Comet Charge
+At Comet Charge, we are driven by a passion for transforming the future of transportation. As a leading provider of electric vehicle (EV) charging solutions, we strive to redefine the way people power their journeys, fostering a cleaner and more sustainable world.
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Our Commitment:
+Sustainability: Comet Charge is committed to promoting eco-friendly mobility. By offering cutting-edge EV charging infrastructure, we empower individuals and businesses to make environmentally conscious choices.
+Innovation: We are at the forefront of technological advancements in the EV charging industry. Our state-of-the-art charging stations are designed for speed, efficiency, and seamless user experiences.
+Accessibility: Comet Charge aims to make EV charging accessible to everyone. Whether you are on a road trip, commuting to work, or simply exploring your city, our widespread network of charging stations ensures you are always powered up.
+Community: Beyond charging solutions, Comet Charge is building a community of like-minded individuals who share a vision for a sustainable future. Join us in creating a network that drives positive change.
+Why Choose Comet Charge?
+Fast Charging: Our charging stations are equipped with cutting-edge technology, delivering fast and reliable charging to get you back on the road in no time.
+Green Energy: Comet Charge is committed to using renewable energy sources to power our charging stations, reducing your carbon footprint.
+User-Friendly App: Easily locate, navigate, and pay for charging sessions through our user-friendly mobile app, making the Comet Charge experience convenient and hassle-free.
+Join us in the electric revolution. Power up with Comet Charge and be part of a cleaner, greener tomorrow.
