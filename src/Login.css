@@ -3,7 +3,7 @@ h2 {
     font-weight: 300
   }
   
-  form {
+   form {
     display: inline-block;
     background: var(--highlight-color);
     border: 1px solid #ddd;

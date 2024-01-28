@@ -12,6 +12,8 @@ import Evdetatil from './Evdetatil';
 import Coin from './Coin';
 import Settings from './Settings';
 import axios from 'axios'; 
+import Reserve from './Reserve';
+import Planroute from './Planroute';
 
 function App() {
    let user = {
@@ -29,10 +31,15 @@ function App() {
    const [Endlocation,setEndLocation]=useState('')
   const [isLoading ,setIsLoading ] = useState(false)
    //contains lat and lon
-   const [mylocation,setMylocation]=useState({})
+   const [mylocation,setMylocation]=useState({
+    latitude: 0, longitude:0  })
+       //contains lat and lon
+
+    
    const [EndlocationData, setEndLocationData]=useState('')
    const [distance ,setDistance] = useState('')
- 
+   
+
    // Getting the user's location
    
    const evChargingStations = [
@@ -346,19 +353,21 @@ function App() {
  
    
    const Setlocation = ()=>{
+    console.log("hi");
      navigator.geolocation.getCurrentPosition(successCallback);
  
      function successCallback(position) {
-       
+        console.log("inside the function");
  
        const latitude = position.coords.latitude;
        const longitude = position.coords.longitude;
-       console.log(position.coords.accuracy);
+      
        
        function errorCallback(){
          console.log('hi');
        }
        const data = {latitude,longitude};
+       
        console.log(latitude,longitude);
        setMylocation(data)
          
@@ -379,7 +388,7 @@ function App() {
          .catch(error => console.error('Error:', error));
      }
    }
- 
+
  
      const findPlaceName =()=>{
        axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${Endlocation}&key=0db2c5702dc44df5843fea2b544fb7ad`)
@@ -417,11 +426,14 @@ function App() {
        return distance;
      }
  
- 
+         
+
+
     const handleClick =() =>{
                 findPlaceName();
                
     }
+    
  
   return (
 
@@ -454,7 +466,23 @@ function App() {
       <Route path='/evDetails' element={<Evdetatil user={user}/>} />
       <Route path='/coins' element={<Coin  user={user} />} />
       <Route path='/Setting' element={<Settings user={user} />} />
+      <Route path='/Reserve' element={<Reserve 
+        user={user}
+        isLoading={isLoading}
+        handleClick={handleClick}
+        setEndLocation={setEndLocation}
+        Endlocation={Endlocation}
+        ulocation={ulocation}
+        setUloacation={setUloacation}
+        mylocation={mylocation}
+       
+        distance={distance}
+        setDistance={setDistance}
+        Setlocation ={Setlocation}
+       evChargingStations={evChargingStations}/>} />
 
+<Route path='/Planroute' element={<Planroute user={user} />} />
+           
     </Routes>
   
    </div>

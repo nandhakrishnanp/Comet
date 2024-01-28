@@ -7,7 +7,7 @@ const Login = () => {
 
       
   return (
-    <div className='bgimg3 full d-flex  align-items-center justify-content-center'>
+    <div className=' bgimg3 full d-flex  align-items-center justify-content-center'>
          <div className="text-center m-5-auto ">
             <h2 className='text-white'>Sign in to us</h2>
             <form className='animate3' action="/Dashboard">

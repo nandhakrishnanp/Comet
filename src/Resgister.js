@@ -6,13 +6,13 @@ import "./Login.css"
 export default function Register() {
 
     return (
-        <div className="text-center m-5-auto  pt-5 bgimg3 full ">
+        <div className="text-center m-5-auto  pt-5 bgimg3 full mb-5 ">
             <div className="pop color2">
             <h2>Join us</h2>
             <h5>Create your personal account</h5>
             </div>
           
-            <form className='animate3' action="/home">
+            <form className='animate3 ' action="/home">
                 <p>
                     <label>Username</label><br/>
                     <input type="text" name="first_name" required />
@@ -26,10 +26,14 @@ export default function Register() {
                     <input type="password" name="password" requiredc />
                 </p>
                 <p>
+                    <label>Ev Brand With Model</label><br/>
+                    <input type="text" name="password" requiredc />
+                </p>
+                <p>
                     <input type="checkbox" name="checkbox" id="checkbox" required /> <span>I agree all statements in <a href="https://google.com" target="_blank" rel="noopener noreferrer">terms of service</a></span>.
                 </p>
                 <p>
-                    <button id="sub_btn" type="submit">Register</button>
+                   <Link className='unstyle' to="/Login"><button id="sub_btn" type="submit">Register</button></Link> 
                 </p>
             </form>
             <footer className='txt text-white unstyle'>

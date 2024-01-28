@@ -42,18 +42,18 @@ const Home = () => {
       </div>
   </nav>
          {/* landing banner */}
-  <section  className='bg-dark mt bgimg '>
-  <div className="container d-flex align-items-center mt-5 p-2 wid">
+  <section  className='bg d-flex align-items-center mt bgimg4 h400 '>
+  <div className="container  mt-5 p-2 wid">
     <div className='animate'>
     <h1 className='h2 pop text-white size'>Wellcome to <span className='color2'>CometCharge</span> </h1> 
         <h2 className='h4 pop text-white  size '>Leading the way in EV charging station reliability</h2>
        <Link to='/login'><button className='btn btn-outline-light mt-1 ml-1 '> Find Station</button></Link> 
     </div>
-     <img width="300px" className='img-fluid' src="/eco-car-flatline.png" alt="" />
+    
   </div>
   </section>
              {/* about page */}
-   <section id='about' className='bg mt p-2'>
+   <section id='about' className='bg mt p-2 mt-2'>
         <div className="container">
             <h2 className='text-center color2 pop'>About Comet Charge</h2>
             <p >
@@ -95,9 +95,9 @@ const Home = () => {
    </section >
  
              {/* service */}
-   <section id='service' className='bg-dark mt p-4'>
+   <section id='service' className='bg-white mt p-4'>
   <div className="container animate2 ">
-    <h2 className='text-center color2 pop'>Our Innovations</h2>
+    <h2 className='text-center color pop'>Our Innovations</h2>
     <div className="row">
 
       <div className="col-md-3 mb-3 d-flex">

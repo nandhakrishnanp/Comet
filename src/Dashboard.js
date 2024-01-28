@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { FaUserCircle ,FaCog  , FaCar, FaRocket, FaGlobe, FaSearchLocation, FaLocationArrow, FaSearch} from 'react-icons/fa';
+import { FaUserCircle ,FaCog,FaBolt , FaCar, FaRocket, FaGlobe, FaSearchLocation, FaLocationArrow, FaSearch, FaFile, FaMap} from 'react-icons/fa';
 
 
 
 
-import Map from './Map';
-import Spinner from './Spinner';
+
+
 
 
 const Dashboard = ( {user , evChargingStations, isLoading, handleClick,setEndLocation, Endlocation,ulocation,
@@ -23,7 +23,7 @@ const Dashboard = ( {user , evChargingStations, isLoading, handleClick,setEndLoc
   
   return (
 
-    <div >
+    <div className='grey' >
       
         <nav className="navbar navbar-expand-md navbar-dark bg fixtop  ">
       <div className="container">
@@ -34,9 +34,9 @@ const Dashboard = ( {user , evChargingStations, isLoading, handleClick,setEndLoc
        
 
           <Link to="/coins">
-          <button type="button" className="btn btn-success ml100  round ms-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Eco Coins">
+          <button type="button" className="btn btn-light ml100 gbg text-black round ms-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Eco Coins">
             <FaGlobe/>
-           <span className="badge badge-light">400</span>
+           <span className="badge badge-dark text-dark ">400</span>
           </button></Link>
           <button className="navbar-toggler" type="button"data-bs-toggle="collapse" data-bs-target="#mynav">
               <span className="navbar-toggler-icon"></span>
@@ -44,25 +44,25 @@ const Dashboard = ( {user , evChargingStations, isLoading, handleClick,setEndLoc
           <div className="collapse navbar-collapse" id="mynav">
               <ul className="navbar-nav ms-auto txt ">
                   <li className="nav-item  active hov">
-                      <a href="#" className="nav-link">Map</a>
+                  <Link className='unstyle' to="/Dashboard"> <a  className="nav-link active">Home</a></Link>
                   </li>
                   <li className="nav-item hov">
-                      <a href="#about" className="nav-link">Ev Stations</a>
+                      <Link className='unstyle' to="/Reserve"><a href="#about" className="nav-link">Reserve</a></Link>
                   </li>
                   <li className="nav-item hov">
-                      <a href="#service" className="nav-link">Plan My Route</a>
+                  <Link className='unstyle' to="/Planroute"><a  className="nav-link">Plan My Trip</a></Link>
                   </li>
                 
                     <li className="nav-item ms-3">
                          
                     <div className="dropdown">
-  <button className="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button className="btn btn-light gbg text-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     {user.userName}
   </button>
   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <Link className='unstyle' to="/Account"><a className="dropdown-item " href="#"><FaUserCircle/> My Account</a></Link>
      <Link  className='unstyle'  to="/Setting"><a className="dropdown-item" href="#"><FaCog/> Settings</a></Link>
-    <Link  className='unstyle' to="/evDetails"><a className="dropdown-item" href="#"><FaCar/> Vechicle Details</a></Link>
+    <Link  className='unstyle' to="/evDetails"><a className="dropdown-item" href="# "><FaFile/> Feedback</a></Link>
   </div>
 </div>
                     </li>
@@ -75,97 +75,88 @@ const Dashboard = ( {user , evChargingStations, isLoading, handleClick,setEndLoc
          
       </div>
   </nav>
-<div className="container ">
-   {isLoading ? <Spinner/>: null}
-  <div className="row">
-  <div className="col-md-8">
+  <section className='  grey'>
+  <div className="container pb-4 ">
+  <h1 className='roboto-light text-center text-dark h4 pt-2'>Charge Ahead, Cut Emissions: Each EV Plug-in, a Promise to a Cleaner Horizon. </h1>
+         <div className="row">
+             
+          <div className="col-md-7 mt-3 ">
+                 <img className='img-fluid    shade text-center  round' width="900px"  src="https://s7ap1.scene7.com/is/image/tatapassenger/oxide-left?$VH-708-500-D$&fit=crop&fmt=png-alpha" alt="" />
+                 <h2 className='text-center '>Tata Nexon Ev</h2>
+          </div>
+          <div className="col-md-5 mt-3  ">
+                
+                  <div className="car-details p-3 txt text-white bg round  shade">
+                    
+
+    <p><span class="attribute">AC Charging Time (10-100%):</span><span class="value"> 6 hours at 7.2 kW</span></p>
+    <p><span class="attribute">Charging Port:</span><span class="value"> CCS-II</span></p>
+    <p><span class="attribute">DC Charging Time (10-80%):</span><span class="value"> 56 minutes at 50 kW</span></p>
+    <p><span class="attribute">Battery Capacity:</span><span class="value"> 40.5 kWh</span></p>
+    <p><span class="attribute">Range:</span><span class="value"> 465 km</span></p>
+    <p><span class="attribute">Last Charged : </span><span class="value">23 hours ago</span></p>
+  </div > 
+  <div className='bg  round  pop text-white p-4 mt-3 pb-5 text-center  shade'>
        
-   <Map  evChargingStations={evChargingStations} />
-    
-    
-  </div>
-  <div className="col-md-4">
-          <form action="#" className='form-group pop'>
-
-              <h2 className='txt color1'>Find And Reserve</h2>
-           
-              <button className='btn btn-dark' onClick={()=>{ Setlocation()}}>Get My location<FaLocationArrow className='ms-2'/></button>
-
-           {  ulocation.length >0 ? <p className='mt-3'>{ulocation}</p>: null}
-               <div className=" mt-3">
-               <label for="locationDropdown " >Select a destination :</label>
-    <select id="locationDropdown" value={Endlocation} className="form-control mt-3" onChange={(e)=>{setEndLocation(e.target.value)}}>
-      <option value="alandurai">Alandurai</option>
-      <option value="anaimalai">Anaimalai</option>
-      <option value="annur">Annur</option>
-      <option value="arasur">Arasur, Coimbatore</option>
-      <option value="chettipalayam">Chettipalayam</option>
-      <option value="chinnavedampatti">Chinnavedampatti</option>
-      <option value="coimbatore">Coimbatore</option>
-      <option value="dhaliyur">Dhaliyur</option>
-      <option value="Ukkadam">Ukkadam</option>
-      <option value="eachanari">Eachanari</option>
-      <option value="ettimadai">Ettimadai</option>
-      <option value="gudalur">Gudalur (Coimbatore district)</option>
-      <option value="idikarai">Idikarai</option>
-      <option value="irugur">Irugur</option>
-      <option value="kangayampalayam">Kangayampalayam</option>
-      <option value="kaniyur">Kaniyur, Coimbatore</option>
-      <option value="kannampalayam">Kannampalayam</option>
-      <option value="karamadai">Karamadai</option>
-      <option value="karumathampatti">Karumathampatti</option>
-      <option value="kinathukadavu">Kinathukadavu</option>
-      <option value="kottur-malayandipattinam">Kottur-Malayandipattinam</option>
-      <option value="kovaipudur">Kovaipudur</option>
-      <option value="madukkarai">Madukkarai</option>
-      <option value="malumichampatti">Malumichampatti</option>
-      <option value="marudhamalai">Marudhamalai</option>
-      <option value="mettupalayam">Mettupalayam, Coimbatore</option>
-      <option value="mopperipalayam">Mopperipalayam</option>
-      <option value="muthugoundenpudur">Muthugoundenpudur</option>
-      <option value="narasimhanaickenpalayam">Narasimhanaickenpalayam</option>
-      <option value="neelambur">Neelambur</option>
-      <option value="odaiyakulam">Odaiyakulam</option>
-      <option value="othakalmandapam">Othakalmandapam</option>
-      <option value="pallapalayam">Pallapalayam, Coimbatore</option>
-      <option value="pattanam">Pattanam, Coimbatore</option>
-      <option value="periya_negamam">Periya Negamam</option>
-      <option value="periyanaickenpalayam">Periyanaickenpalayam</option>
-      <option value="pollachi">Pollachi</option>
-      <option value="pooluvapatti">Pooluvapatti</option>
-      <option value="samathur">Samathur</option>
-      <option value="saravanampatti">Saravanampatti</option>
-      <option value="sarcarsamakulam">Sarcarsamakulam</option>
-      <option value="sirumugai">Sirumugai</option>
-      <option value="somayampalayam">Somayampalayam</option>
-      <option value="suleeswaranpatti">Suleeswaranpatti</option>
-      <option value="sulur">Sulur</option>
-      <option value="thekkupalayam">Thekkupalayam</option>
-      <option value="thenkarai">Thenkarai, Coimbatore</option>
-      <option value="thirumalayampalayam">Thirumalayampalayam</option>
-      <option value="thondamuthur">Thondamuthur</option>
-      <option value="uliyampalayam">Uliyampalayam</option>
-      <option value="valparai">Valparai</option>
-      <option value="vedapatti">Vedapatti</option>
-      <option value="veerapandi">Veerapandi, Coimbatore</option>
-      <option value="vellakinar">Vellakinar</option>
-      <option value="vettaikaranpudur">Vettaikaranpudur</option>
-      <option value="zamin_uthukuli">Zamin Uthukuli</option>
-    </select>
-
-  </div>
-           <button className='btn btn-dark text-center mt-4 ms-5 ' onClick={(e)=>{handleClick(e)}}>Find Stations <FaSearch/></button>
-             <br />
-            
-           <p className='mt-2 '>* As the App uses Opensource Api's the Accuracy of Users location may have slight Differences</p>
-          </form>
-
-          { distance>0 ? <p className='pop text-dark'>{Math.floor(distance)} KM </p>: null}
+          <h5 className='txt h6'>Seamless Power Awaits: Secure Your EV Charge, Anytime, Anywhere</h5>
+      <Link to="/Reserve"><button className='btn btn-light mt-1 gbg'> <FaBolt className='pe-1'/>Reserve my Charger</button></Link> 
   </div>
   
-  </div>
- 
-</div>
+       
+          </div>
+         </div>
+  
+
+    
+    </div>
+  </section>
+
+  <section className=' bg '>
+        <h1 className='roboto-light text-center text-white h2 pt-5'>Relax, Plan, Power On: Unwind as We Navigate, Charge, and <br/><span className='color2'>Elevate Your Electric Journey!</span></h1>
+
+        <div className="container">
+      
+
+          <div className="row">
+                <div className="col-md-6 pt-5">
+               <h3 className='pop color2'> 1. Enter Your Journey Details:</h3> <br/>
+
+<p className='pop text-white'>Begin by inputting your starting point, destination, and any waypoints you'd like to explore along the way. The trip planner will curate the best route for your EV adventure.</p>
+                </div>
+
+                <div className="col-md-6">
+                  <img  width="300px" src="./map-flatline.png" alt="" />
+                </div>
+          </div>
+          <div className="row ">
+                 <div className="col-md-6">
+                 <img  width="400px" src="./eco-car-outline.png" alt="" />
+                 </div>
+                <div className="col-md-6 pt-5">
+               <h3 className='pop color2'> 2. Discover Charging Stations En Route:</h3> <br/>
+
+<p className='pop text-white'>Our intelligent trip planner scans the route and identifies optimal EV charging stations strategically placed between your location and destination. Get real-time information on charging station availability, charging speeds, and amenities.</p>
+                </div>
+          </div>
+          <div className="row">
+                <div className="col-md-6 pt-5">
+               <h3 className='pop color2'> 3. Plan Your Stops, Charge with Ease:</h3> <br/>
+
+<p className='pop text-white'>Customize your journey by selecting preferred charging stations based on your charging needs and preferences. The trip planner ensures seamless integration, allowing you to plan breaks, explore attractions, and charge your EV hassle-free. Your electrifying road trip awaits!</p>
+                </div>
+
+                <div className="col-md-6">
+                <img className='ms-3'  width="300px" src="./traveling-flatline.png" alt="" />
+                </div>
+          </div>
+        </div>
+
+        <div className="text-center p-5">
+        <Link to="/Planroute"><button className='btn btn-light btn-lg mt-1 gbg '> <FaBolt className='pe-1'/>Plan My Route</button></Link> 
+        </div>
+       
+  </section>
+
 <footer className=' bg p-5 mt-5 '>
 
 <div className="container text-center  text-white txt ">
