@@ -407,7 +407,7 @@ function App() {
          const data = response.data.results[0].geometry;
          setEndLocationData(data)
          console.log("Selected Location Data:", data);
-         haversineDistance(mylocation.latitude , mylocation.longitude,EndlocationData.lat, EndlocationData.lng)
+    
        })
        .catch(error => {
          console.error('Error:', error);
@@ -493,7 +493,7 @@ function App() {
         Setlocation ={Setlocation}
        evChargingStations={evChargingStations}/>} />
 
-<Route path='/Planroute' element={<Planroute user={user} />} />
+<Route path='/Planroute' element={<Planroute user={user} ulocation={ulocation} />} />
            
     </Routes>
   

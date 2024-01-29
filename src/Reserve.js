@@ -6,8 +6,8 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import Map from './Map';
 import { FaUserCircle ,FaCog  , FaCar, FaRocket,FaFile, FaGlobe, FaSearchLocation, FaLocationArrow, FaSearch, FaCheck, FaCross, FaTimes} from 'react-icons/fa';
 const Reserve = ({evChargingStations,user, handleClick,mylocation,
-    distance, L,
-
+    distance, L, ulocation,
+   
   
     Setlocation}) => {
       const [popup , setPopup]=useState(false)
@@ -15,9 +15,20 @@ const Reserve = ({evChargingStations,user, handleClick,mylocation,
       const [date, setDate] = useState('');
       const [timeSlot, setTimeSlot] = useState('');
       const [stationType, setStationType] = useState('');
+      const [check,setcheck] = useState(false);
 
       const handleSubmit=() =>{
                console.log("heloo");
+      }
+
+      const Handlereserve=()=>{
+          setcheck(true)
+
+          setPopup(false)
+
+          setTimeout(() => {
+            setcheck(false)
+          }, 3000);
       }
   return (
     <div className='over'>
@@ -72,14 +83,25 @@ const Reserve = ({evChargingStations,user, handleClick,mylocation,
       </div>
   </nav>
 <div className="row ">
+   
+   {  check ? 
+   <div className='popup  d-flex align-items-center justify-content-center'>
+         <img  className=' checked img-fluid imgs' src="https://assets.stickpng.com/images/5aa78e207603fc558cffbf19.png" alt="" />  
+               <div>
+               <h4 className=' checked pop color2 pop '>ReserVation SuccessFull</h4>
+               </div>
+         
+   </div>
+             
 
+  :null}
   { popup ? <div className="popup  d-flex align-items-center justify-content-center">
               <div className='closebut' onClick={()=>setPopup(false)}> <FaTimes  /></div>
               <div className="warp">
                           <div className="form ">
                           <form className='form-group bg-light animateup' onSubmit={handleSubmit}>
 
-                            <h2 className='txt text-center  text-dark'>Check Availability & Reserve</h2>
+                            <h2 className='txt text-center  text-dark '>Check Availability & Reserve</h2>
                             <label className="form-label">
   EV Station:
   <select>
@@ -135,7 +157,9 @@ const Reserve = ({evChargingStations,user, handleClick,mylocation,
       </label>
       <br />
 
-      <button className='btn btn-dark text-center d-block mt-4 ms-5 '>Reserve  <FaSearch/></button>
+      <button className='btn btn-dark text-center d-block mt-4 ms-5 '  onClick={()=>{
+                               Handlereserve()
+                            }}>Reserve  <FaSearch/></button>
      
     </form>
                     </div>
@@ -177,6 +201,7 @@ const Reserve = ({evChargingStations,user, handleClick,mylocation,
   <MapContainer center={[10.9956, 77.2852]} zoom={10} scrollWheelZoom={true}  style={{ position: 'relative', width: '100%', height: '100vh', zIndex: 0    }}>
         <Map   mylocation={mylocation}
             evChargingStations={evChargingStations}
+            uLocation={ulocation}
             L={L} />
     
     </MapContainer>     

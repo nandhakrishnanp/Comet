@@ -58,6 +58,7 @@ background-color: var(--highlight-color);
    background-color:  var(--highlight-color);
  
 }
+
 .mt{
   position: relative;
   bottom: 50px;
@@ -75,6 +76,8 @@ background-color: var(--highlight-color);
 
   
 }
+
+
 
 
 .wid{
@@ -263,3 +266,32 @@ background-color: var(--highlight-color);
 .over{
   overflow-x: hidden;
 }
+
+.checker{
+   z-index: 1;
+}
+
+.imgs{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  z-index: 1 !important;
+  left: 42%;
+  top: 15%;
+}
+
+
+
+.checked{
+      animation: zoom 0.6s linear;
+}
+
+@keyframes zoom {
+   from{
+      opacity: 0;
+   }
+   to{
+    opacity: 1;
+   }
+}
+

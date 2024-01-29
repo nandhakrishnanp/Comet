@@ -1,9 +1,10 @@
 import React from 'react'
-import { FaUserCircle ,FaCog  , FaCar, FaRocket,FaFile, FaGlobe, FaSearchLocation, FaLocationArrow, FaSearch, FaCheck, FaCross, FaTimes} from 'react-icons/fa';
+import { FaUserCircle ,FaCog  , FaCar, FaRocket,FaFile, FaGlobe, FaSearchLocation, FaLocationArrow, FaSearch, FaCheck, FaCross, FaTimes, FaDotCircle} from 'react-icons/fa';
 import { Link } from 'react-router-dom'
-const Planroute = ({user}) => {
+const Planroute = ({user ,ulocation}) => {
   return (
-    <div><nav className="navbar navbar-expand-md navbar-dark bg fixtop  ">
+    <div className='grey'>
+      <nav className="navbar navbar-expand-md navbar-dark bg fixtop  ">
     <div className="container">
         <a  href="#" className="navbar-brand pdl color2 ">
             <FaRocket/>
@@ -55,7 +56,39 @@ const Planroute = ({user}) => {
 </nav>
 
    
+    <div className="container">
 
+   
+                  <div className="form   d-flex align-items-center justify-content-center full">
+
+                    <div className="row">
+                       <div className="col-md-7 ">
+                       <h1 className='roboto-light text-center text-dark h2 pt-5'>Relax, Plan, Power On: Unwind as We Navigate, Charge, and <br/><span className='color'>Elevate Your Electric Journey!</span></h1>
+
+                       </div>
+
+                       <div className="col-md-5">
+                        
+                    <form className='animate3 ms-5 '>
+                <p>
+                    <label>My Location</label><br/>
+                    < FaLocationArrow className='me-1'/>   <input   type="text" name="first_name" required />   <FaDotCircle className='ms-2' />
+                </p>
+                <p>
+                    <label>Destination</label><br/>
+                    <FaCar className='me-1'/>   <input type="text" name="email" required /> 
+                </p>
+            
+               
+                <p>
+                   <Link className='unstyle'><button id="sub_btn" type="submit">Plan My Trip</button></Link> 
+                </p>
+            </form>
+                       </div>
+                    </div>
+               
+                  </div>
+    </div>
 </div>
   )
 }

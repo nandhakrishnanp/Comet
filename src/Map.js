@@ -14,7 +14,7 @@ let DefaultIcon = L.icon({
 });
 
 L.Marker.prototype.options.icon = DefaultIcon;
-const Map = ({ evChargingStations, mylocation }) => {
+const Map = ({ evChargingStations, mylocation  ,ulocation}) => {
   const customIconUrl = "https://static.vecteezy.com/system/resources/previews/009/589/758/non_2x/location-location-pin-location-icon-transparent-free-png.png";
   const customIcon = new L.Icon({
     iconUrl: customIconUrl,
@@ -80,21 +80,21 @@ const [routeControl, setRouteControl] = useState(null);
   }, [mylocation, evChargingStations, map, routeControl]);
 
 
-   const addStation =()=>{
-    newRouteControl.on('routeselected', (e) => {
-      // Extract the waypoints from the selected route
-      const routeWaypoints = e.route.waypoints;
+//    const addStation =()=>{
+//     newRouteControl.on('routeselected', (e) => {
+//       // Extract the waypoints from the selected route
+//       const routeWaypoints = e.route.waypoints;
 
-      // Find charging stations along the route
-      const stations = evChargingStations.filter(station => {
-        const stationLatLng = L.latLng(station.lat, station.lng);
-        return routeWaypoints.some(waypoint => waypoint.equals(stationLatLng));
-      });
+//       // Find charging stations along the route
+//       const stations = evChargingStations.filter(station => {
+//         const stationLatLng = L.latLng(station.lat, station.lng);
+//         return routeWaypoints.some(waypoint => waypoint.equals(stationLatLng));
+//       });
 
-      // Set the found stations in the state
-      setStationsAlongRoute(stations);
-   }
- ) }
+//       // Set the found stations in the state
+//       setStationsAlongRoute(stations);
+//    }
+//  ) }
     
   return (
     <div>
@@ -124,6 +124,8 @@ const [routeControl, setRouteControl] = useState(null);
         <Marker icon={customIcon} position={[mylocation.latitude, mylocation.longitude]}>
           <Popup>
             <h5>Current Location</h5>
+            
+            <p className='txt text-dark'>{ulocation}</p>
           </Popup>
         </Marker>
       ) : null}
