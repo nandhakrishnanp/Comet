@@ -34,7 +34,7 @@ const [routeControl, setRouteControl] = useState(null);
 
   const [destination, setDestination] = useState(null);
   const [nearestMarker, setNearestMarker] = useState(null);
-
+  const [stationsAlongRoute, setStationsAlongRoute] = useState([]);
   const map = useMapEvents({
     click: (e) => {
       // Clear the route and nearest marker when clicking on the map
@@ -79,6 +79,23 @@ const [routeControl, setRouteControl] = useState(null);
     }
   }, [mylocation, evChargingStations, map, routeControl]);
 
+
+   const addStation =()=>{
+    newRouteControl.on('routeselected', (e) => {
+      // Extract the waypoints from the selected route
+      const routeWaypoints = e.route.waypoints;
+
+      // Find charging stations along the route
+      const stations = evChargingStations.filter(station => {
+        const stationLatLng = L.latLng(station.lat, station.lng);
+        return routeWaypoints.some(waypoint => waypoint.equals(stationLatLng));
+      });
+
+      // Set the found stations in the state
+      setStationsAlongRoute(stations);
+   }
+ ) }
+    
   return (
     <div>
       <TileLayer
@@ -114,7 +131,7 @@ const [routeControl, setRouteControl] = useState(null);
       {nearestMarker ? (
         <Marker icon={customIcon} position={[nearestMarker.lat, nearestMarker.lng]}>
           <Popup>
-            <h5>Nearest Marker</h5>
+            <h5>Nearest Station</h5>
             <p>{nearestMarker.name}</p>
           </Popup>
         </Marker>

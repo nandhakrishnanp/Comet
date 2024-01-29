@@ -1,5 +1,5 @@
 
-import { Route,Routes } from 'react-router-dom';
+import { Route,Routes, json } from 'react-router-dom';
 import React, { useState } from 'react'
 import './App.css';
 import Home from './Home';
@@ -387,8 +387,19 @@ function App() {
          })
          .catch(error => console.error('Error:', error));
      }
+
+     
    }
 
+
+
+   const Prediction = async ()=>{
+      const result =  await axios.get('http://localhost:3004/predict') 
+      const data =  await JSON.stringify(result)
+      console.log(data)
+      console.log(result)
+      
+   }
  
      const findPlaceName =()=>{
        axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${Endlocation}&key=0db2c5702dc44df5843fea2b544fb7ad`)
@@ -431,6 +442,7 @@ function App() {
 
     const handleClick =() =>{
                 findPlaceName();
+               
                
     }
     

@@ -52,7 +52,11 @@ const Planroute = ({user}) => {
         </div>
        
     </div>
-</nav></div>
+</nav>
+
+   
+
+</div>
   )
 }
 

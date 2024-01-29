@@ -149,7 +149,7 @@ const Reserve = ({evChargingStations,user, handleClick,mylocation,
               <h3 className='txt color1'> Find Best Station</h3>
 
                         
-              <button className='btn btn-dark text-center mt-4 ms-5 ' onClick={()=>Setlocation()}>Quick Find <FaSearch/></button>
+              <button className='btn btn-dark text-center mt-4 ms-5 ' onClick={()=>Setlocation() }>Quick Find <FaSearch/></button>
      <div className=" mt-3">
               
 
