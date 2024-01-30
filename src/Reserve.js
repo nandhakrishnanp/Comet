@@ -1,35 +1,35 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
+import axios from 'axios'; 
 
 import { MapContainer, TileLayer } from 'react-leaflet';
 
 import Map from './Map';
-import { FaUserCircle ,FaCog  , FaCar, FaRocket,FaFile, FaGlobe, FaSearchLocation, FaLocationArrow, FaSearch, FaCheck, FaCross, FaTimes} from 'react-icons/fa';
+import { FaUserCircle ,FaCog  , FaCar, FaRocket,FaFile, FaGlobe, FaSearchLocation, FaLocationArrow,FaSignOutAlt, FaSearch, FaCheck, FaCross, FaTimes} from 'react-icons/fa';
 const Reserve = ({evChargingStations,user, handleClick,mylocation,
     distance, L, ulocation,
-   
-  
-    Setlocation}) => {
-      const [popup , setPopup]=useState(false)
-      const [station, setStation] = useState('');
-      const [date, setDate] = useState('');
-      const [timeSlot, setTimeSlot] = useState('');
-      const [stationType, setStationType] = useState('');
-      const [check,setcheck] = useState(false);
+    Setlocation,popup,
+    setPopup,
+    station, 
+    handleStationChange,
+    date,
+    setDate,
+    timeSlot,
+    setTimeSlot,
+    setStationType,
+    stationType,
+    sendInputToApi}) => {
+    
 
-      const handleSubmit=() =>{
-               console.log("heloo");
-      }
+      // const Handlereserve=()=>{
+      //     setcheck(true)
 
-      const Handlereserve=()=>{
-          setcheck(true)
+      //     setPopup(false)
 
-          setPopup(false)
-
-          setTimeout(() => {
-            setcheck(false)
-          }, 3000);
-      }
+      //     setTimeout(() => {
+      //       setcheck(false)
+      //     }, 3000);
+      // }
   return (
     <div className='over'>
           <nav className="navbar navbar-expand-md navbar-dark bg fixtop  ">
@@ -68,7 +68,7 @@ const Reserve = ({evChargingStations,user, handleClick,mylocation,
   </button>
   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <Link className='unstyle' to="/Account"><a className="dropdown-item " href="#"><FaUserCircle/> My Account</a></Link>
-     <Link  className='unstyle'  to="/Setting"><a className="dropdown-item" href="#"><FaCog/> Settings</a></Link>
+    <Link  className='unstyle'  to="/"><a className="dropdown-item" href="#"><FaSignOutAlt/> LogOut</a></Link>
     <Link  className='unstyle' to="/evDetails"><a className="dropdown-item" href="# "><FaFile/> Feedback</a></Link>
   </div>
 </div>
@@ -84,34 +84,24 @@ const Reserve = ({evChargingStations,user, handleClick,mylocation,
   </nav>
 <div className="row ">
    
-   {  check ? 
-   <div className='popup  d-flex align-items-center justify-content-center'>
-         <img  className=' checked img-fluid imgs' src="https://assets.stickpng.com/images/5aa78e207603fc558cffbf19.png" alt="" />  
-               <div>
-               <h4 className=' checked pop color2 pop '>ReserVation SuccessFull</h4>
-               </div>
-         
-   </div>
-             
-
-  :null}
+  
   { popup ? <div className="popup  d-flex align-items-center justify-content-center">
               <div className='closebut' onClick={()=>setPopup(false)}> <FaTimes  /></div>
               <div className="warp">
-                          <div className="form ">
-                          <form className='form-group bg-light animateup' onSubmit={handleSubmit}>
+                          <div className="form pop">
+                          <form className='form-group bg-light animateup' >
 
                             <h2 className='txt text-center  text-dark '>Check Availability & Reserve</h2>
-                            <label className="form-label">
-  EV Station:
-  <select>
-    {evChargingStations.map((element) => (
-      <option key={element.name} value={element.name}>
-        {element.name} 
-      </option>
-    ))}
-  </select>
-</label>
+                            <label className="form-label">    
+        EV Station:
+        <select value={station} onChange={handleStationChange}>
+          {evChargingStations.map((element) => (
+            <option key={element.name} value={element.name}>
+              {element.name}  
+            </option>  
+          ))}
+        </select>
+      </label>
 <br />
 
     
@@ -145,21 +135,21 @@ const Reserve = ({evChargingStations,user, handleClick,mylocation,
       <label class="form-label">
         Station Type:
         <select
-        className='dropdown'
-          value={stationType}
+        className='dropdown ms-2'
+        
           onChange={(e) => setStationType(e.target.value)}
           required
         >
-          <option value="">Select Type</option>
+         
           <option value="fast">Fast Charging</option>
           <option value="standard">Standard Charging</option>
         </select>
       </label>
       <br />
-
-      <button className='btn btn-dark text-center d-block mt-4 ms-5 '  onClick={()=>{
-                               Handlereserve()
-                            }}>Reserve  <FaSearch/></button>
+   <br />
+      <button className='btn ms-5 btn-dark text-center d-block mt-4 ms-5 '  onClick={()=>{
+                             sendInputToApi()
+                            }}> Check Availability <FaSearch/></button>
      
     </form>
                     </div>
@@ -209,8 +199,7 @@ const Reserve = ({evChargingStations,user, handleClick,mylocation,
   </div>
 
   </div>
- 
-    
+  
     </div>
   )
 }

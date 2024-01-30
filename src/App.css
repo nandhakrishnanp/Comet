@@ -78,7 +78,12 @@ background-color: var(--highlight-color);
 }
 
 
-
+.wid50{
+  width: 50px;
+}
+.wid51{
+  width: 240px;
+}
 
 .wid{
   height: 50vh;

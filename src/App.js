@@ -14,11 +14,14 @@ import Settings from './Settings';
 import axios from 'axios'; 
 import Reserve from './Reserve';
 import Planroute from './Planroute';
-
+import Payment from './Payment';
+import { useNavigate } from 'react-router-dom';
+import Admin from './Admin';
+import Test from './test';
 function App() {
    let user = {
     userName: "Nandhakrishnan",
-    ecocoins:200,
+    ecocoins:400,
     evDetails:{
        Name: "Tata Nexon Ev",
        batterytype: "Lithium Ion",
@@ -35,10 +38,56 @@ function App() {
     latitude: 0, longitude:0  })
        //contains lat and lon
 
-    
+    const [finallocation , setFinallocation] =useState('')
    const [EndlocationData, setEndLocationData]=useState('')
    const [distance ,setDistance] = useState('')
+   const [popup , setPopup]=useState(false)
+   const [station, setStation] = useState('');
+   const [date, setDate] = useState('');
+   const [timeSlot, setTimeSlot] = useState('');
    
+   const [stationType, setStationType] = useState('');
+   // const [check,setcheck] = useState(false);
+
+    const nav = useNavigate()
+      const [redirect , Setredirect ] = useState(false)
+
+   const handleSubmit=() =>{
+            console.log("heloo");
+   }
+
+
+
+      const sendInputToApi = async ()=>{
+            console.log("sending data to api");
+       const postdata = await axios.post("http://localhost:3004/reserve", {
+         reservedata: {
+           station,
+           date,
+           timeSlot,
+           stationType,
+           // Add more properties as needed
+         }
+       
+        
+       });
+       
+       
+       
+     console.log(postdata.data)
+       if( postdata.data.status == " Slot Available"){
+                  nav('/Payment')
+       }
+       else{
+            Setredirect(false)
+       }
+
+      }
+   
+      const handleStationChange = (e) => {
+       setStation(e.target.value);
+       console.log(station);
+     };
 
    // Getting the user's location
    
@@ -372,7 +421,7 @@ function App() {
        setMylocation(data)
          
        
-   
+     console.log("Fetchiing loaction");
        const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18`;
      
        
@@ -381,6 +430,7 @@ function App() {
          .then(data => {
        
            const locationName = data.display_name;
+            setFinallocation(locationName)
            console.log("Location Name: " + locationName.split(','));
             
            setUloacation(locationName);
@@ -438,6 +488,12 @@ function App() {
      }
  
          
+     const handleAi =  async ()=>{
+      const res = await axios.get('http://localhost:3004/predict')
+      console.log(res);
+       return res.data.predictedData
+       
+   }
 
 
     const handleClick =() =>{
@@ -487,14 +543,46 @@ function App() {
         ulocation={ulocation}
         setUloacation={setUloacation}
         mylocation={mylocation}
-       
+        popup={popup}
         distance={distance}
         setDistance={setDistance}
         Setlocation ={Setlocation}
+        setPopup={setPopup}
+station ={station}
+handleStationChange={handleStationChange}
+date={date}
+setDate={setDate}
+timeSlot={timeSlot}
+setTimeSlot={setTimeSlot}
+setStationType={setStation}
+stationType={stationType}
+sendInputToApi={sendInputToApi}
        evChargingStations={evChargingStations}/>} />
 
-<Route path='/Planroute' element={<Planroute user={user} ulocation={ulocation} />} />
-           
+<Route path='/Planroute' element={<Planroute user={user} 
+  Setlocation ={Setlocation}  ulocation={ulocation} 
+  finallocation={finallocation}/>} />
+
+<Route path='/Payment' element={<Payment user={user} 
+
+popup={popup}
+setPopup={setPopup}
+station ={station}
+handleStationChange={handleStationChange}
+date={date}
+setDate={setDate}
+timeSlot={timeSlot}
+setTimeSlot={setTimeSlot}
+setStationType={setStation}
+stationType={stationType}
+sendInputToApi={sendInputToApi}
+ 
+/>} />
+<Route path='/Admin' element={<Admin handleAi={handleAi} />} />  
+
+<Route path='/api' element={<Test/>} />
+
+
     </Routes>
   
    </div>

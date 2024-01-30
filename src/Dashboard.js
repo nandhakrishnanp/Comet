@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { FaUserCircle ,FaCog,FaBolt , FaCar, FaRocket, FaGlobe, FaSearchLocation, FaLocationArrow, FaSearch, FaFile, FaMap} from 'react-icons/fa';
+import { FaUserCircle ,FaCog,FaBolt , FaCar, FaRocket, FaGlobe, FaSearchLocation, FaLocationArrow, FaSearch, FaFile, FaMap, FaSignOutAlt} from 'react-icons/fa';
 
 
 
@@ -61,7 +61,7 @@ const Dashboard = ( {user , evChargingStations, isLoading, handleClick,setEndLoc
   </button>
   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <Link className='unstyle' to="/Account"><a className="dropdown-item " href="#"><FaUserCircle/> My Account</a></Link>
-     <Link  className='unstyle'  to="/Setting"><a className="dropdown-item" href="#"><FaCog/> Settings</a></Link>
+     <Link  className='unstyle'  to="/"><a className="dropdown-item" href="#"><FaSignOutAlt/> LogOut</a></Link>
     <Link  className='unstyle' to="/evDetails"><a className="dropdown-item" href="# "><FaFile/> Feedback</a></Link>
   </div>
 </div>

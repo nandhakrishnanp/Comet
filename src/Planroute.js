@@ -1,7 +1,13 @@
 import React from 'react'
-import { FaUserCircle ,FaCog  , FaCar, FaRocket,FaFile, FaGlobe, FaSearchLocation, FaLocationArrow, FaSearch, FaCheck, FaCross, FaTimes, FaDotCircle} from 'react-icons/fa';
+import { FaUserCircle ,FaCog  , FaCar, FaRocket,FaFile,FaSignOutAlt, FaGlobe, FaSearchLocation, FaLocationArrow, FaSearch, FaCheck, FaCross, FaTimes, FaDotCircle} from 'react-icons/fa';
 import { Link } from 'react-router-dom'
-const Planroute = ({user ,ulocation}) => {
+const Planroute = ({user ,ulocation , finallocation,  Setlocation}) => {
+ 
+
+ const HandleFindLocation =()=>{
+          Setlocation()
+          
+  }
   return (
     <div className='grey'>
       <nav className="navbar navbar-expand-md navbar-dark bg fixtop  ">
@@ -40,7 +46,7 @@ const Planroute = ({user ,ulocation}) => {
 </button>
 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
   <Link className='unstyle' to="/Account"><a className="dropdown-item " href="#"><FaUserCircle/> My Account</a></Link>
-   <Link  className='unstyle'  to="/Setting"><a className="dropdown-item" href="#"><FaCog/> Settings</a></Link>
+  <Link  className='unstyle'  to="/"><a className="dropdown-item" href="#"><FaSignOutAlt/> LogOut</a></Link>
   <Link  className='unstyle' to="/evDetails"><a className="dropdown-item" href="# "><FaFile/> Feedback</a></Link>
 </div>
 </div>
@@ -64,7 +70,7 @@ const Planroute = ({user ,ulocation}) => {
                     <div className="row">
                        <div className="col-md-7 ">
                        <h1 className='roboto-light text-center text-dark h2 pt-5'>Relax, Plan, Power On: Unwind as We Navigate, Charge, and <br/><span className='color'>Elevate Your Electric Journey!</span></h1>
-
+                             <h2 className='roboto-normal pop color text-center'>Powered By Ai</h2>
                        </div>
 
                        <div className="col-md-5">
@@ -72,7 +78,8 @@ const Planroute = ({user ,ulocation}) => {
                     <form className='animate3 ms-5 '>
                 <p>
                     <label>My Location</label><br/>
-                    < FaLocationArrow className='me-1'/>   <input   type="text" name="first_name" required />   <FaDotCircle className='ms-2' />
+                    < FaLocationArrow className='me-1'/>   <input   type="text" value={finallocation} name="first_name" required  /> 
+                      <FaDotCircle className='ms-2 ' onClick={()=>HandleFindLocation()} />
                 </p>
                 <p>
                     <label>Destination</label><br/>
@@ -81,7 +88,7 @@ const Planroute = ({user ,ulocation}) => {
             
                
                 <p>
-                   <Link className='unstyle'><button id="sub_btn" type="submit">Plan My Trip</button></Link> 
+                   <Link className='unstyle'><button id="sub_btn" type="submit " >Plan My Trip</button></Link> 
                 </p>
             </form>
                        </div>
