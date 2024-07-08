@@ -1,16 +1,15 @@
-Wellcome to CometCharge
-Leading the way in EV charging station reliability
+# Comet Charge
 
-About Comet Charge
-At Comet Charge, we are driven by a passion for transforming the future of transportation. As a leading provider of electric vehicle (EV) charging solutions, we strive to redefine the way people power their journeys, fostering a cleaner and more sustainable world.
+Comet Charge is an innovative EV charging platform designed to enhance the electric vehicle charging experience for users and provide valuable insights for administrators. The platform offers a range of features, including detailed car information views, interactive maps, a points-based reward system, and AI-driven electricity demand predictions.
 
-Our Commitment:
-Sustainability: Comet Charge is committed to promoting eco-friendly mobility. By offering cutting-edge EV charging infrastructure, we empower individuals and businesses to make environmentally conscious choices.
-Innovation: We are at the forefront of technological advancements in the EV charging industry. Our state-of-the-art charging stations are designed for speed, efficiency, and seamless user experiences.
-Accessibility: Comet Charge aims to make EV charging accessible to everyone. Whether you are on a road trip, commuting to work, or simply exploring your city, our widespread network of charging stations ensures you are always powered up.
-Community: Beyond charging solutions, Comet Charge is building a community of like-minded individuals who share a vision for a sustainable future. Join us in creating a network that drives positive change.
-Why Choose Comet Charge?
-Fast Charging: Our charging stations are equipped with cutting-edge technology, delivering fast and reliable charging to get you back on the road in no time.
-Green Energy: Comet Charge is committed to using renewable energy sources to power our charging stations, reducing your carbon footprint.
-User-Friendly App: Easily locate, navigate, and pay for charging sessions through our user-friendly mobile app, making the Comet Charge experience convenient and hassle-free.
-Join us in the electric revolution. Power up with Comet Charge and be part of a cleaner, greener tomorrow.
+## Features
+
+- **Detailed Car Information Views**: Users can view comprehensive details about their electric vehicles, including battery status, charging history, and more.
+  
+- **Interactive Map with Charging Station Locations**: Built using Leaflet.js, the map provides real-time locations of nearby charging stations, allowing users to find and navigate to the nearest available charger easily.
+
+- **Points-Based Reward System**: To enhance user engagement, the platform includes a reward system where users earn points for various activities, such as charging sessions and referrals.
+
+- **AI-Driven Electricity Demand Predictions**: Utilizing TensorFlow.js, the admin panel features AI-driven predictions for electricity demand, helping administrators manage resources effectively and anticipate future needs.
+
+- **Responsive User Interface**: Developed with React.js and Bootstrap, the platform offers a seamless and user-friendly experience across all devices, ensuring accessibility and ease of use.
